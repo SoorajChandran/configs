@@ -1,0 +1,43 @@
+[core]
+	excludesfile = /Users/sooraj/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Sooraj Chandran
+	email = soorajchn@gmail.com
+	signinkey = 40607221
+	signingkey = 40607221
+[alias]
+	p = pull
+	d = difftool
+	co = checkout
+	cob = checkout -b
+	st = status
+	ap = add -p
+	ci = commit --verbose
+	cia = commit --verbose --amend
+	br = branch
+	b = branch
+	ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git branch -d $CURRENT; }; f"
+	ads = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git branch -d $CURRENT; }; f"
+	bd = branch -d
+	bdd = branch -D
+	praise = blame
+	rc = rebase --continue
+	rbb = "!f() { git rebase -i HEAD~$1; }; f"
+	rbm = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git checkout $CURRENT; git rebase master; }; f"
+	po = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+	pfo = !git push -u --force-with-lease origin `git rev-parse --abbrev-ref HEAD`
+	pffo = !git push -u --force origin `git rev-parse --abbrev-ref HEAD`
+	hist = log --graph --pretty=format:\"%h %ad | %s%d [%an]\" --date=short
+	pr = !hub pull-request
+	prs = !hub pull-request -b staging
+	peak = !git log -1 --format=\"%H\" | tr -d \"\n\" | pbcopy
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
